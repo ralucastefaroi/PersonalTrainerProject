@@ -1,0 +1,48 @@
+﻿@page
+@model PersonalTrainerProject.Pages.Produse.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="font-family:'Trebuchet MS';text-align: center;color:#6699ff">Produse</h1>
+
+<p>
+    <a asp-page="Create" style="font-family:'Trebuchet MS';color:#9494b8;">Adaugă un produs nou</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th style="font-family:'Trebuchet MS';color:#99bbff">
+                @Html.DisplayNameFor(model => model.Produs[0].Denumire)
+            </th>
+            <th style="font-family:'Trebuchet MS';color:#99bbff">
+                @Html.DisplayNameFor(model => model.Produs[0].Pret)
+            </th>
+            <th style="font-family:'Trebuchet MS';color:#99bbff">
+                @Html.DisplayNameFor(model => model.Produs[0].Supliment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Produs) {
+        <tr>
+            <td style="font-family:'Trebuchet MS'">
+                @Html.DisplayFor(modelItem => item.Denumire)
+            </td>
+            <td style="font-family:'Trebuchet MS'">
+                @Html.DisplayFor(modelItem => item.Pret)
+            </td>
+            <td style="font-family:'Trebuchet MS'">
+                @Html.DisplayFor(modelItem => item.Supliment.Denumire)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID" style="font-family:'Trebuchet MS'">Editează</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID" style="font-family:'Trebuchet MS'">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID" style="font-family:'Trebuchet MS'">Șterge</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

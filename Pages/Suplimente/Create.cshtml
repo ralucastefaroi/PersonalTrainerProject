@@ -1,0 +1,44 @@
+﻿@page
+@model PersonalTrainerProject.Pages.Suplimente.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 style="font-family:'Trebuchet MS';color:#6699ff">Adaugă un supliment nou</h1>
+
+<h4 style="font-family:'Trebuchet MS';color:#9494b8">Supliment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="font-family:'Trebuchet MS';color:#99bbff">
+                <label asp-for="Supliment.Denumire" class="control-label"></label>
+                <input asp-for="Supliment.Denumire" class="form-control" />
+                <span asp-validation-for="Supliment.Denumire" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="font-family:'Trebuchet MS';color:#99bbff">
+                <label asp-for="Supliment.Cantitate" class="control-label"></label>
+                <input asp-for="Supliment.Cantitate" class="form-control" />
+                <span asp-validation-for="Supliment.Cantitate" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="font-family:'Trebuchet MS';color:#99bbff">
+                <label asp-for="Supliment.Price" class="control-label"></label>
+                <input asp-for="Supliment.Price" class="form-control" />
+                <span asp-validation-for="Supliment.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group" style="font-family:'Trebuchet MS'">
+                <input type="submit" value="Adaugă" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

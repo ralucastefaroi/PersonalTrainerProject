@@ -1,0 +1,40 @@
+﻿@page
+@model PersonalTrainerProject.Pages.Suplimente.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 style="font-family:'Trebuchet MS';color:#6699ff">Șterge suplimentul</h1>
+
+<h3  style="font-family:'Trebuchet MS';color:#9494b8">Ești sigur că vrei să ștergi?</h3>
+<div>
+    <h4  style="font-family:'Trebuchet MS';color:#9494b8">Supliment</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2" style="font-family:'Trebuchet MS';color:#99bbff">
+            @Html.DisplayNameFor(model => model.Supliment.Denumire)
+        </dt>
+        <dd class="col-sm-10" style="font-family:'Trebuchet MS'">
+            @Html.DisplayFor(model => model.Supliment.Denumire)
+        </dd>
+        <dt class="col-sm-2" style="font-family:'Trebuchet MS';color:#99bbff">
+            @Html.DisplayNameFor(model => model.Supliment.Cantitate)
+        </dt>
+        <dd class="col-sm-10" style="font-family:'Trebuchet MS'">
+            @Html.DisplayFor(model => model.Supliment.Cantitate)
+        </dd>
+        <dt class="col-sm-2" style="font-family:'Trebuchet MS';color:#99bbff">
+            @Html.DisplayNameFor(model => model.Supliment.Price)
+        </dt>
+        <dd class="col-sm-10" style="font-family:'Trebuchet MS'">
+            @Html.DisplayFor(model => model.Supliment.Price)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Supliment.ID" />
+        <input type="submit" value="Șterge" class="btn btn-danger" style="font-family:'Trebuchet MS'"/> |
+        <a asp-page="./Index" style="font-family:'Trebuchet MS'">Înapoi</a>
+    </form>
+</div>

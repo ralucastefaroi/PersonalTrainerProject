@@ -1,0 +1,66 @@
+﻿@page "/"
+@model PersonalTrainerProject.Pages.Clienti.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="font-family:'Trebuchet MS';text-align: center;color:#6699ff">Clienți</h1>
+
+<p>
+    <a asp-page="Create" style="font-family:'Trebuchet MS';color:#9494b8;">Adaugă un client nou</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th style="font-family:'Trebuchet MS';color:#99bbff">
+                @Html.DisplayNameFor(model => model.Client[0].Nume)
+            </th>
+            <th style="font-family:'Trebuchet MS';color:#99bbff">
+                @Html.DisplayNameFor(model => model.Client[0].Prenume)
+            </th>
+            <th style="font-family:'Trebuchet MS';color:#99bbff">
+                @Html.DisplayNameFor(model => model.Client[0].Varsta)
+            </th>
+            <th style="font-family:'Trebuchet MS';color:#99bbff">
+                @Html.DisplayNameFor(model => model.Client[0].Greutate)
+            </th>
+            <th style="font-family:'Trebuchet MS';color:#99bbff">
+                @Html.DisplayNameFor(model => model.Client[0].Email)
+            </th>
+            <th style="font-family:'Trebuchet MS';color:#99bbff">
+                @Html.DisplayNameFor(model => model.Client[0].Produs)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Client) {
+        <tr>
+            <td style="font-family:'Trebuchet MS'">
+                @Html.DisplayFor(modelItem => item.Nume)
+            </td>
+            <td style="font-family:'Trebuchet MS'">
+                @Html.DisplayFor(modelItem => item.Prenume)
+            </td>
+            <td style="font-family:'Trebuchet MS'">
+                @Html.DisplayFor(modelItem => item.Varsta)
+            </td>
+            <td style="font-family:'Trebuchet MS'">
+                @Html.DisplayFor(modelItem => item.Greutate)
+            </td>
+            <td style="font-family:'Trebuchet MS'">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td style="font-family:'Trebuchet MS'">
+                @Html.DisplayFor(modelItem => item.Produs.Denumire)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID" style="font-family:'Trebuchet MS'">Editează</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID" style="font-family:'Trebuchet MS'">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID" style="font-family:'Trebuchet MS'">Șterge</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
